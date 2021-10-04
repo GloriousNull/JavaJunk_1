@@ -17,9 +17,9 @@ public class Application
 
         while (running)
         {
-            running = manager.processInput();
-
             renderer.render(manager.getRenderInfo());
+
+            running = manager.processInput();
         }
     }
 }

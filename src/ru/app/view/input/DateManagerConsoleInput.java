@@ -2,15 +2,16 @@ package ru.app.view.input;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DateManagerConsoleInput implements DateManagerInput
 {
-    private final Scanner scanner = new Scanner(System.in);
-
     @Override
     public DateManagerInputEvent pollEvent()
     {
+        var scanner = new Scanner(System.in);
+
         var event  = new DateManagerInputEvent();
         var command = scanner.next();
 
@@ -39,9 +40,17 @@ public class DateManagerConsoleInput implements DateManagerInput
         {
             event.setType(DateManagerInputEvent.eventType.GIVE_NEXT_DATE_EVENT);
 
-            Integer id = scanner.nextInt();
+            try
+            {
+                var id = scanner.nextInt();
+                event.getDate().setId(id);
+            }
+            catch (InputMismatchException exception)
+            {
+                event.setType(DateManagerInputEvent.eventType.UNKNOWN_EVENT);
 
-            event.getDate().setId(id);
+                return event;
+            }
 
             return event;
         }
@@ -83,7 +92,7 @@ public class DateManagerConsoleInput implements DateManagerInput
                 return event;
             }
 
-            var description = scanner.next();
+            var description = scanner.nextLine();
             event.getDate().setDescription(description);
 
             return event;
@@ -93,8 +102,17 @@ public class DateManagerConsoleInput implements DateManagerInput
         {
             event.setType(DateManagerInputEvent.eventType.DELETE_DATE_EVENT);
 
-            var id = scanner.nextInt();
-            event.getDate().setId(id);
+            try
+            {
+                var id = scanner.nextInt();
+                event.getDate().setId(id);
+            }
+            catch (InputMismatchException exception)
+            {
+                event.setType(DateManagerInputEvent.eventType.UNKNOWN_EVENT);
+
+                return event;
+            }
 
             return event;
         }

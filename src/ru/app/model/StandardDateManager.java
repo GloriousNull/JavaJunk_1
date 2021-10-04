@@ -7,6 +7,7 @@ import ru.app.view.DateManagerRenderInfo;
 import ru.app.view.input.DateManagerInput;
 import ru.app.view.input.DateManagerInputEvent;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,12 @@ public class StandardDateManager implements DateManager
     private MemorableDateDataAccess dao;
     @InjectByType
     private DateManagerRenderInfo renderInfo;
+
+    @PostConstruct
+    public void Init()
+    {
+        renderInfo.addRenderableWelcome();
+    }
 
     @Override
     public boolean processInput()
@@ -44,8 +51,8 @@ public class StandardDateManager implements DateManager
 
             case DELETE_DATE_EVENT -> result = handleDeleteDateEvent(event);
 
-            case UNKNOWN_EVENT -> renderInfo.addRenderAbleCommandExecutionStatus
-                    (new CommandExecutionInfo(CommandExecutionInfo.ExecutionStatus.FAILURE, event));
+            case UNKNOWN_EVENT -> result = new CommandExecutionInfo(CommandExecutionInfo.ExecutionStatus.FAILURE,
+                                                                    event);
         }
 
         if (result != null)

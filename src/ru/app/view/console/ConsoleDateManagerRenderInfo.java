@@ -36,6 +36,12 @@ public class ConsoleDateManagerRenderInfo implements DateManagerRenderInfo
     }
 
     @Override
+    public void addRenderableWelcome()
+    {
+        renderables.add(new ConsoleRenderableWelcome());
+    }
+
+    @Override
     public List<Renderable> getRenderables()
     {
         return renderables;
