@@ -1,6 +1,4 @@
-package ru.app.di;/**
- * @author Evgeny Borisov
- */
+package ru.app.di;
 
 import java.lang.annotation.Retention;
 
