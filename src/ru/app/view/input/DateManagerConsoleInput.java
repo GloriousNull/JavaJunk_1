@@ -92,7 +92,7 @@ public class DateManagerConsoleInput implements DateManagerInput
                 return event;
             }
 
-            var description = scanner.nextLine();
+            var description = scanner.nextLine().trim();
             event.getDate().setDescription(description);
 
             return event;

@@ -2,9 +2,8 @@ package ru.app.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-interface QueryResultFetcher<RetType>
+interface QueryResultComposer<RetType>
 {
     RetType invoke(ResultSet results);
 }
@@ -12,6 +11,6 @@ interface QueryResultFetcher<RetType>
 public interface Database
 {
     void prepareQuery(String query, String... valuesToBind);
-    <T> T executeQueryAndReturn(QueryResultFetcher<T> composer);
+    <T> T executeQueryAndReturn(QueryResultComposer<T> composer);
     void executeQuery() throws SQLException;
 }

@@ -3,7 +3,9 @@ package ru.app.di;
 import lombok.Getter;
 import org.reflections.Reflections;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public class JavaConfig implements Config
@@ -14,7 +16,8 @@ public class JavaConfig implements Config
 
     public JavaConfig(String packageToScan, Map<Class, Class> ifc2ImplClass)
     {
-        this.ifc2ImplClass = ifc2ImplClass;
+        this.ifc2ImplClass = Objects.requireNonNullElseGet(ifc2ImplClass, HashMap::new);
+
         this.scanner = new Reflections(packageToScan);
     }
 

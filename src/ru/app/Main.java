@@ -9,7 +9,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        ApplicationContext context = Application.run("ru.app", new HashMap<>());
+        var context = Application.run("ru.app", null);
 
         var demo = context.getObject(ru.app.Application.class);
         demo.run();

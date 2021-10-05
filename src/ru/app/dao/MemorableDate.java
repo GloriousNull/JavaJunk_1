@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-public class MemorableDate
+public class MemorableDate implements Serializable
 {
     @Getter
     @Setter
@@ -36,5 +36,20 @@ public class MemorableDate
         this.id = null;
         this.date = date;
         this.description = description;
+    }
+
+    @Override
+    public Object get(Integer index)
+    {
+        if (index == 1)
+            return id;
+
+        if (index == 2)
+            return date;
+
+        if (index == 3)
+            return description;
+
+        return null;
     }
 }

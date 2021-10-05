@@ -21,7 +21,6 @@ public class MemorableDateDataAccessImplementation implements MemorableDateDataA
     private static final String UPDATE_QUERY = "UPDATE date SET date = ?, description = ? WHERE id = ?";
     private static final String DELETE_QUERY = "DELETE FROM date WHERE id = ?";
 
-
     public MemorableDateDataAccessImplementation()
     {
         dataSource = new StaticDatabase();

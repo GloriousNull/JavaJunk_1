@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-public class StaticResultSet<T> implements ResultSet
+public class StaticResultSet<T extends Serializable> implements ResultSet
 {
     private final List<T> results;
     private Integer carriage;
@@ -42,7 +42,7 @@ public class StaticResultSet<T> implements ResultSet
     @Override
     public String getString(int columnIndex) throws SQLException
     {
-        return null;
+        return (String)results.get(carriage).get(columnIndex);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class StaticResultSet<T> implements ResultSet
     @Override
     public int getInt(int columnIndex) throws SQLException
     {
-        return 0;
+        return (int)results.get(carriage).get(columnIndex);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class StaticResultSet<T> implements ResultSet
     @Override
     public Date getDate(int columnIndex) throws SQLException
     {
-        return null;
+        return new Date(((java.util.Date)results.get(carriage).get(columnIndex)).getTime());
     }
 
     @Override
