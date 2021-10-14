@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.app.dao.MemorableDate;
 
-import java.util.Date;
-
 public class DateManagerInputEvent
 {
     @Getter

@@ -39,7 +39,7 @@ public class MemorableDate implements Serializable
     }
 
     @Override
-    public Object get(Integer index)
+    public Object getField(Integer index)
     {
         if (index == 1)
             return id;

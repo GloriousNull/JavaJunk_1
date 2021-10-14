@@ -8,7 +8,7 @@ import java.util.*;
 public class StaticDatabase implements Database
 {
     private String currentQuery;
-    private List<MemorableDate> staticData;
+    private final List<MemorableDate> staticData;
     private List<MemorableDate> results;
     private Integer id;
 

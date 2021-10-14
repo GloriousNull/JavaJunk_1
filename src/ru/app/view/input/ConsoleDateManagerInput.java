@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class DateManagerConsoleInput implements DateManagerInput
+public class ConsoleDateManagerInput implements DateManagerInput
 {
     @Override
     public DateManagerInputEvent pollEvent()

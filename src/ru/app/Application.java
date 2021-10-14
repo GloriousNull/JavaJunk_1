@@ -15,11 +15,13 @@ public class Application
     {
         boolean running = true;
 
+        renderer.render(manager.getRenderInfo());
+
         while (running)
         {
-            renderer.render(manager.getRenderInfo());
-
             running = manager.processInput();
+
+            renderer.render(manager.getRenderInfo());
         }
     }
 }

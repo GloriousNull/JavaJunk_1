@@ -42,7 +42,7 @@ public class StaticResultSet<T extends Serializable> implements ResultSet
     @Override
     public String getString(int columnIndex) throws SQLException
     {
-        return (String)results.get(carriage).get(columnIndex);
+        return (String)results.get(carriage).getField(columnIndex);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class StaticResultSet<T extends Serializable> implements ResultSet
     @Override
     public int getInt(int columnIndex) throws SQLException
     {
-        return (int)results.get(carriage).get(columnIndex);
+        return (int)results.get(carriage).getField(columnIndex);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class StaticResultSet<T extends Serializable> implements ResultSet
     @Override
     public Date getDate(int columnIndex) throws SQLException
     {
-        return new Date(((java.util.Date)results.get(carriage).get(columnIndex)).getTime());
+        return new Date(((java.util.Date)results.get(carriage).getField(columnIndex)).getTime());
     }
 
     @Override
