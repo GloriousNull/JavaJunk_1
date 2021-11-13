@@ -34,6 +34,7 @@ public class MemorableDateDataAccessImplementation implements MemorableDateDataA
         return dataSource.executeQueryAndReturn((datasourceResult) ->
         {
             var results = new ArrayList<MemorableDate>();
+
             try
             {
                 while (datasourceResult.next())

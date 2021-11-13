@@ -7,7 +7,9 @@ import ru.app.dao.StaticDatabase;
 import ru.app.di.Application;
 import ru.app.model.DateManager;
 import ru.app.model.StandardDateManager;
+import ru.app.view.DateManagerRenderInfo;
 import ru.app.view.DateManagerRenderer;
+import ru.app.view.console.ConsoleDateManagerRenderInfo;
 import ru.app.view.console.ConsoleDateManagerRenderer;
 import ru.app.view.input.ConsoleDateManagerInput;
 import ru.app.view.input.DateManagerInput;
@@ -22,6 +24,7 @@ public class Main
         {{
             put(DateManager.class, StandardDateManager.class);
             put(DateManagerRenderer.class, ConsoleDateManagerRenderer.class);
+            put(DateManagerRenderInfo.class, ConsoleDateManagerRenderInfo.class);
             put(DateManagerInput.class, ConsoleDateManagerInput.class);
             put(MemorableDateDataAccess.class, MemorableDateDataAccessImplementation.class);
             put(Database.class, StaticDatabase.class);

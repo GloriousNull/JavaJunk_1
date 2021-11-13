@@ -23,7 +23,7 @@ public class DateManagerInputEvent
     }
 
     @Getter
-    private MemorableDate date;
+    private final MemorableDate date;
 
     public DateManagerInputEvent()
     {
